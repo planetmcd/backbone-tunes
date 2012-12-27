@@ -21,6 +21,16 @@
     url: '/albums'
   });
 
+  window.Playlist = Albums.extend({
+    isFirstAlbum: function(index) {
+      return(index==0);
+    },
+    isLastAlbum: function(index){
+      return (index==this.models.length-1);
+    }
+
+  });
+
   window.library =new Albums();
 
 
@@ -41,8 +51,17 @@
     }
   });
 
+  // This is the view that displays a single Album and an artists name
   window.LibraryAlbumView = AlbumView.extend({
-  
+    events: {
+      'click .queue.add': 'select'
+    } ,
+
+
+    select: function(){
+      this.collection.trigger('select', this.model );
+      console.log("Trigger select", this.model);
+    }
   });
 
   window.LibraryView = Backbone.View.extend({
