@@ -51,12 +51,7 @@ describe("Album", function () {
     expect(this.album.trackUrlAtIndex(0))
       .toEqual('/music/Album A Track A.mp3');
   });
-
-
-
 });
-
-
 
 describe("Playlist", function(){
   beforeEach(function(){
@@ -82,8 +77,6 @@ describe("Playlist", function(){
     this.playlist.add(albumData[1]);
     expect(this.playlist.isLastAlbum(0)).toBeFalsy();
   });
-
-
 
 });
 

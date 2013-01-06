@@ -57,7 +57,6 @@
       'click .queue.add': 'select'
     } ,
 
-
     select: function(){
       this.collection.trigger('select', this.model );
       console.log("Trigger select", this.model);
@@ -115,16 +114,12 @@
     blank: function() {
       $('#container').empty();
       $('#container').text('blank');
-
     }
-
-    
   });
 
   $(function() {
     window.App = new BackboneTunes();
     Backbone.history.start();
   });
-
 
 })(jQuery);
