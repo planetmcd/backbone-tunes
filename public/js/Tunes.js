@@ -16,6 +16,35 @@
 
   });
 
+  window.Player = Backbone.Model.extend({
+    defaults: {
+      currentAlbumIndex:0,
+      currenttrackindex: 0,
+      'state': 'stop'
+    },
+
+    initialize: function() {
+      this.playlist = new Playlist();
+    },
+
+    play: function() {
+      this.set({'state':'play'});
+    },
+
+    pause: function() {
+      this.set({'state':'pause'});
+    },
+
+    isPlaying: function() {
+      return (this.get('state')=='play');
+    },
+
+    isStopped: function() {
+      return (!this.isPlaying());
+    }
+              
+  });
+
   window.Albums = Backbone.Collection.extend({
     model: Album,
     url: '/albums'
